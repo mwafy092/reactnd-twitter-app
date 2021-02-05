@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import * as API from '../utils/api';
+import { connect } from 'react-redux';
+import { handleInitialData } from '../actions/shared';
+
 class App extends Component {
   componentDidMount() {
-    API.getInitialData().then((data) => console.log(data));
+    this.props.dispatch(handleInitialData());
   }
   render() {
+    console.log(this.props);
     return <div></div>;
   }
 }
+const mapStateToProps = ({ authedUser }) => {
+  return { authedUser };
+};
 
-export default App;
+export default connect(mapStateToProps)(App);
