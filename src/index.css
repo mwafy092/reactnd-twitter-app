@@ -161,3 +161,7 @@ li {
   font-size: 20px;
   color: #c3392a;
 }
+
+button:focus {
+  outline: none;
+}
