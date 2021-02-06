@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Tweet from './Tweet';
+import { FiBell } from 'react-icons/fi';
+
 class Dashboard extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
-        <h3 className='center'>Your Timeline</h3>
+        <h3 className='center'>
+          Your Timeline
+          <span className='tweet-numbers'>
+            <FiBell />
+            <span>{this.props.tweetIds.length}</span>
+          </span>
+        </h3>
         <ul className='dashboard-list'>
           {this.props.tweetIds.map((id) => (
             <li key={id}>

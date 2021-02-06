@@ -10,7 +10,7 @@ export function receiveTweets(tweets) {
   };
 }
 
-function toggleTweet({ id, authedUser, hasLiked }) {
+function toggleTweet({ authedUser, id, hasLiked }) {
   return {
     type: TOGGLE_TWEET,
     id,
@@ -22,10 +22,11 @@ function toggleTweet({ id, authedUser, hasLiked }) {
 export function handleToggleTweet(info) {
   return (dispatch) => {
     dispatch(toggleTweet(info));
+
     return saveLikeToggle(info).catch((e) => {
-      console.warn('Error while toggling tweet: ', e);
+      console.warn('Error while toggling tweet:', e);
       dispatch(toggleTweet(info));
-      alert('Error while licking the tweet. Please try again.');
+      alert('Error while modifying the tweet. please try again');
     });
   };
 }
