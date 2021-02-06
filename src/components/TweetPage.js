@@ -11,11 +11,12 @@ class TweetPage extends Component {
         <NewTweet id={id} />
         {replies.length !== 0 && <h3 className='center'>Replies</h3>}
         <ul>
-          {replies.map((replyId) => (
-            <li key={replyId}>
-              <Tweet id={replyId} />
-            </li>
-          ))}
+          {replies.length !== 0 &&
+            replies.map((replyId) => (
+              <li key={replyId}>
+                <Tweet id={replyId} />
+              </li>
+            ))}
         </ul>
       </div>
     );
