@@ -1,3 +1,6 @@
+*:focus {
+  outline: none;
+}
 body {
   margin: 0;
   padding: 0;
@@ -27,11 +30,13 @@ a {
   font-size: 16px;
   width: 250px;
   position: relative;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .btn:hover {
   border-color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
+  box-shadow: none;
 }
 
 .btn:focus {
@@ -161,17 +166,18 @@ li {
   padding: 10px;
   font-size: 15px;
   height: 100px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.textarea:hover {
+  box-shadow: none;
+  transition: all 200ms ease-in-out;
 }
 
 .tweet-length {
   text-align: right;
   margin-top: 10px;
   font-size: 20px;
-  color: #c3392a;
-}
-
-button:focus {
-  outline: none;
+  color: #fff;
 }
 
 .tweet-numbers {
