@@ -4,33 +4,33 @@ import { formatTweet, formatDate } from '../utils/helpers';
 import { AiFillHeart } from 'react-icons/ai';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { TiArrowBackOutline } from 'react-icons/ti';
-
 class Tweet extends Component {
   toParent = (e, id) => {
     e.preventDefault();
-    // todo -> redirect to parent tweet
+    // todo -> redirect to the parent tweet
   };
 
   handleLike = (e) => {
     e.preventDefault();
-    // todo -> handle like
+    // todo -> handle tweet like by user
   };
   render() {
     const { tweet } = this.props;
     const {
-      avatar,
-      name,
-      hasLiked,
-      text,
-      replies,
-      timestamp,
       parent,
+      name,
+      avatar,
+      text,
+      timestamp,
       likes,
+      hasLiked,
+      replies,
     } = tweet;
-    console.log(parent);
+    // if there is no tweet render a warning message
     if (tweet === null) {
-      return <p>This Tweet Doesn't Exist</p>;
+      return <p>This tweet doesn't exist.</p>;
     }
+
     return (
       <div className='tweet'>
         <img src={avatar} alt={`Avatar of ${name}`} className='avatar' />
@@ -42,17 +42,17 @@ class Tweet extends Component {
               <button
                 className='replying-to'
                 onClick={(e) => this.toParent(e, parent.id)}>
-                Replaying to @{parent.author}
+                Replying To @{parent.author}
               </button>
             )}
           </div>
           <p>{text}</p>
           <div className='tweet-icons'>
             <TiArrowBackOutline className='tweet-icon' />
-            <span>{replies > 0 && replies}</span>
+            <span>{replies !== 0 && replies}</span>
             <button className='heart-button' onClick={this.handleLike}>
               {hasLiked ? (
-                <AiFillHeart color='#e0245e' className='tweet-icon' />
+                <AiFillHeart className='tweet-icon' color='#e0245e' />
               ) : (
                 <AiOutlineHeart className='tweet-icon' />
               )}
@@ -65,7 +65,7 @@ class Tweet extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, tweets, users }, { id }) {
+function mapStateToProps({ authedUser, users, tweets }, { id }) {
   const tweet = tweets[id];
   const parentTweet = tweet ? tweets[tweet.replyingTo] : null;
 

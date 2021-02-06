@@ -13,7 +13,6 @@ class App extends Component {
 
     return (
       <div>
-        {' '}
         <LoadingBar />
         {loading ? <Dashboard /> : null}
       </div>
