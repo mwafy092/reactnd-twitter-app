@@ -4,6 +4,7 @@ import { formatTweet, formatDate } from '../utils/helpers';
 import { AiFillHeart } from 'react-icons/ai';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { TiArrowBackOutline } from 'react-icons/ti';
+import { handleToggleTweet } from '../actions/tweets';
 class Tweet extends Component {
   toParent = (e, id) => {
     e.preventDefault();
@@ -12,7 +13,14 @@ class Tweet extends Component {
 
   handleLike = (e) => {
     e.preventDefault();
-    // todo -> handle tweet like by user
+    const { dispatch, authedUser, tweet } = this.props;
+    dispatch(
+      handleToggleTweet({
+        id: tweet.id,
+        authedUser,
+        hasLiked: tweet.hasLiked,
+      })
+    );
   };
   render() {
     const { tweet } = this.props;
