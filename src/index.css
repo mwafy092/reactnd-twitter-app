@@ -6,7 +6,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   color: #252525;
-  background-color: #37667a;
+  background-color: #fffff8;
 }
 
 a {
@@ -30,7 +30,7 @@ a {
   font-size: 16px;
   width: 250px;
   position: relative;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
@@ -47,7 +47,7 @@ a {
 
 .center {
   text-align: center;
-  color: #fff;
+  color: #1991da;
 }
 
 .active {
@@ -90,7 +90,7 @@ li {
   border-radius: 3px;
   cursor: pointer;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  background-color: #193f4e;
+  background-color: #1991da;
   color: #fff;
 }
 .tweet:hover {
@@ -110,11 +110,11 @@ li {
   margin-right: 5px;
 }
 .tweet-info > div > span:nth-child(2) {
-  color: #969696;
+  color: #fff;
   font-size: 16px;
 }
 .tweet-info > div > div {
-  color: #969696;
+  color: #fff;
   font-size: 15px;
 }
 .tweet-info > div > p {
@@ -126,16 +126,16 @@ li {
   align-items: center;
 }
 .tweet-icons > span {
-  color: #969696;
+  color: #fff;
   margin: 0 15px 0 5px;
   font-size: 18px !important;
 }
 .tweet-icon {
   font-size: 27px;
-  color: #697784;
+  color: #fff;
 }
 .tweet-icon:hover {
-  color: #00b5d6;
+  color: #90c5e6;
   cursor: pointer;
 }
 .replying-to {
@@ -143,8 +143,9 @@ li {
   background: transparent;
   margin: 0;
   padding: 0;
-  color: #969696;
+  color: #fffff8;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .heart-button {
@@ -177,7 +178,7 @@ li {
   text-align: right;
   margin-top: 10px;
   font-size: 20px;
-  color: #fff;
+  color: red;
 }
 
 .tweet-numbers {

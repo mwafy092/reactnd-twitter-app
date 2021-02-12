@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { CgTimelapse } from 'react-icons/cg';
 import { handleAddTweet } from '../actions/tweets';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 class NewTweet extends Component {
   state = {
     text: '',
+    toHome: false,
   };
 
   handleChange = (e) => {
@@ -16,16 +18,26 @@ class NewTweet extends Component {
     e.preventDefault();
     const { text } = this.state;
     const { dispatch, id } = this.props;
+
     dispatch(handleAddTweet(text, id));
-    this.setState({ text: '' });
+    this.setState(() => ({ text: '', toHome: id ? false : true }));
   };
   render() {
     //   todo -> when submit redirect to the homepage
-    const { text } = this.state;
+    const { text, toHome } = this.state;
+
+    if (toHome) {
+      return <Redirect to='/' />;
+    }
     const tweetLeft = 280 - text.length;
     return (
       <div>
-        <h3 className='center'>Compose new Tweet</h3>
+        {this.props.id ? (
+          <h3 className='center'>Compose new reply</h3>
+        ) : (
+          <h3 className='center'>Compose new Tweet</h3>
+        )}
+
         <form className='new-tweet' onSubmit={this.handleSubmit}>
           <textarea
             placeholder="What's Happening?"
